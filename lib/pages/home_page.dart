@@ -52,6 +52,7 @@ class _HomePageState extends State<HomePage> {
             ),
             ListTile(
               leading: Icon(Icons.camera_alt),
+              selected: (0 == _selectDrawerItem),
               title: Text('Import'),
               onTap: () {
                 _onSelectItem(0);
@@ -59,9 +60,34 @@ class _HomePageState extends State<HomePage> {
             ),
             ListTile(
               leading: Icon(Icons.photo),
+              selected: (1 == _selectDrawerItem),
               title: Text('Gallery'),
               onTap: () {
                 _onSelectItem(1);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.save),
+              selected: (2 == _selectDrawerItem),
+              title: Text('Export'),
+              onTap: () {
+                _onSelectItem(2);
+              },
+            ),
+            Divider(),
+            ListTile(
+              leading: Icon(Icons.account_circle),
+              selected: (3 == _selectDrawerItem),
+              title: Text('Profile'),
+              onTap: () {
+                _onSelectItem(3);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.exit_to_app),
+              title: Text('Logout'),
+              onTap: () {
+                _onSelectItem(4);
               },
             ),
           ],
@@ -81,6 +107,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   _onSelectItem(int pos) {
+    Navigator.of(context).pop();
     setState(() {
       _selectDrawerItem = pos;
     });
